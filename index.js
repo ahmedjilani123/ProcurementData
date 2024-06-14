@@ -1,14 +1,14 @@
 const express = require("express");
 const cors=require("cors");
 const env = require("dotenv").config();
-const mongooseModel=require("./Module/Schema.js");
-const DataBase = require("./DataBase/DataBaseConn.js");
+const mongooseModel=require("./src/Module/Schema.js");
+const DataBase = require("./src/DataBase/DataBaseConn.js");
 const app=express();
 DataBase();
 app.use(cors({
     "origin":"*"
 }))
-const port=process.env.PORT;
+const port=process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.get("/vendorReceived",async(req,res)=>{
