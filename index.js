@@ -11,10 +11,10 @@ app.use(cors({
 const port=process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.get("/vendorReceived",async(req,res)=>{
+app.get("/vendor",async(req,res)=>{
 try{
     const data = await mongooseModel.find();
-    res.json(data);
+    res.json({"message":"welcome"});
 }catch(err){
     res.json(err);
 }
