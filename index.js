@@ -11,7 +11,7 @@ app.use(cors({
 const port=process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.get("/vendor",async(req,res)=>{
+app.get("/",async(req,res)=>{
 try{
     const data = await mongooseModel.find();
     res.json({"message":"welcome"});
